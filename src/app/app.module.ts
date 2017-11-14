@@ -9,8 +9,13 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { SignupCustomerPage } from '../pages/signup-customer/signup-customer';
 import { SignupVendorPage } from '../pages/signup-vendor/signup-vendor';
+
+import { TestPage} from '../pages/test/test';
+
+/* Providers */
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HTTP } from '@ionic-native/http';
 
 
 @NgModule({
@@ -21,7 +26,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     LoginPage,
     SignupCustomerPage,
-    SignupVendorPage
+    SignupVendorPage,
+    TestPage
   ],
   imports: [
     BrowserModule,
@@ -35,11 +41,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     LoginPage,
     SignupCustomerPage,
-    SignupVendorPage
+    SignupVendorPage,
+    TestPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
