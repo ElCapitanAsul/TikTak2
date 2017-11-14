@@ -1,0 +1,67 @@
+<!--
+  Generated template for the ClientsListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Choose Client</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<div padding>
+  <ion-segment [(ngModel)]="filter">
+    <ion-segment-button value="Online">
+      Online
+    </ion-segment-button>
+    <ion-segment-button value="Nearby">
+      Nearby
+    </ion-segment-button>
+    <ion-segment-button value="Top Rated">
+      Top Rated
+    </ion-segment-button>
+     </ion-segment>
+  
+</div>
+
+<div [ngSwitch]="filter">
+  <ion-list *ngSwitchCase="'Online'">
+    <ion-item>
+      <ion-thumbnail item-start>
+      <img src="www/img/man.jpg">
+    </ion-thumbnail>
+    <h2>Cris John David Manero</h2>
+    <p>Professional Caregiver</p>
+    <button ion-button outline item-end>Send Request</button>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'Nearby'">
+    <ion-item>
+       <ion-thumbnail item-start>
+      <img src="www/img/man.jpg">
+    </ion-thumbnail>
+    <h2>Cris John David Manero</h2>
+    <p>Professional Caregiver</p>
+    <button ion-button outline item-end>Send Request</button>
+    </ion-item>
+  </ion-list>
+<ion-list *ngSwitchCase="'Top Rated'">
+    <ion-item>
+       <ion-thumbnail item-start>
+      <img src="www/img/man.jpg">
+    </ion-thumbnail>
+    <h2>Cris John David Manero</h2>
+    <p>Professional Caregiver</p>
+    <button ion-button outline item-end>Send Request</button>
+    </ion-item>
+  </ion-list>
+
+</div>
+
+</ion-content>

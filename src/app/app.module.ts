@@ -9,6 +9,9 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { SignupCustomerPage } from '../pages/signup-customer/signup-customer';
 import { SignupVendorPage } from '../pages/signup-vendor/signup-vendor';
+import { ClientsListPage } from '../pages/clients-list/clients-list';
+import { VendorsListPage } from '../pages/vendors-list/vendors-list';
+import { ServicesListPage } from '../pages/services-list/services-list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -21,7 +24,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     LoginPage,
     SignupCustomerPage,
-    SignupVendorPage
+    SignupVendorPage,
+    ClientsListPage,
+    VendorsListPage,
+    ServicesListPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     LoginPage,
     SignupCustomerPage,
-    SignupVendorPage
+    SignupVendorPage,
+    ClientsListPage,
+    VendorsListPage,
+    ServicesListPage
   ],
   providers: [
     StatusBar,
