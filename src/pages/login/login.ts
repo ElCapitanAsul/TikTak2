@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SignupCustomerPage } from '../signup-customer/signup-customer';
 import { SignupVendorPage } from '../signup-vendor/signup-vendor';
+
+import { ClientsListPage } from '../clients-list/clients-list';
+
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -34,5 +38,13 @@ export class LoginPage {
     // navigate to the new page if it is not the current page
     this.navCtrl.setRoot(SignupVendorPage);
   }
+
+
+  openClientsListPage() {
+    // close the menu when clicking a link from the menu
+    // navigate to the new page if it is not the current page
+    this.navCtrl.setRoot(ClientsListPage);
+  }
+
 
 }

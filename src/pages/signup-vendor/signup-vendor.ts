@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { ServicesListPage } from '../services-list/services-list';
+
+
 /**
  * Generated class for the SignupVendorPage page.
  *
@@ -20,6 +23,13 @@ export class SignupVendorPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupVendorPage');
+  }
+
+
+openServicesListPage() {
+    // close the menu when clicking a link from the menu
+    // navigate to the new page if it is not the current page
+    this.navCtrl.setRoot(ServicesListPage);
   }
 
 }
