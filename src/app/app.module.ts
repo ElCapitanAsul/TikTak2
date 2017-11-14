@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
@@ -12,8 +11,15 @@ import { SignupVendorPage } from '../pages/signup-vendor/signup-vendor';
 import { ClientsListPage } from '../pages/clients-list/clients-list';
 import { VendorsListPage } from '../pages/vendors-list/vendors-list';
 import { ServicesListPage } from '../pages/services-list/services-list';
+
+
+import { TestPage} from '../pages/test/test';
+
+/* Providers */
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HTTP } from '@ionic-native/http';
+
 
 
 @NgModule({
@@ -25,9 +31,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     SignupCustomerPage,
     SignupVendorPage,
+
     ClientsListPage,
     VendorsListPage,
-    ServicesListPage
+    ServicesListPage,
+    TestPage
+
   ],
   imports: [
     BrowserModule,
@@ -42,13 +51,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     SignupCustomerPage,
     SignupVendorPage,
+
     ClientsListPage,
     VendorsListPage,
-    ServicesListPage
+    ServicesListPage,
+    TestPage
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
