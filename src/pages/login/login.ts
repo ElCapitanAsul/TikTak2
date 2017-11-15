@@ -30,13 +30,13 @@ export class LoginPage {
   openCustomerPage() {
     // close the menu when clicking a link from the menu
     // navigate to the new page if it is not the current page
-    this.navCtrl.setRoot(SignupCustomerPage);
+    this.navCtrl.push(SignupCustomerPage);
   }
 
   openVendorPage() {
     // close the menu when clicking a link from the menu
     // navigate to the new page if it is not the current page
-    this.navCtrl.setRoot(SignupVendorPage);
+    this.navCtrl.push(SignupVendorPage);
   }
 
 

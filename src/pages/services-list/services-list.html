@@ -14,9 +14,13 @@
 
 
 <ion-content padding>
-<ion-item>
-  <ion-label>Sample Service</ion-label>
+
+<div *ngFor="let service of services">
+	<ion-item>
+  <ion-label>{{service}}</ion-label>
   <ion-checkbox color="#808080" checked="true"></ion-checkbox>
-</ion-item>
+  	</ion-item>
+</div>
+
 
 </ion-content>
