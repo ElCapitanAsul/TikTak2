@@ -36,7 +36,10 @@ export class TestPage {
 
   	ionViewDidLoad() {
 		console.log('ionViewDidLoad TestPage');
-	    this.http.get('http://107.170.225.6/TikTakPHP/vendor/selectAll.php', {}, {})
+		// this.http.setHeader('Content-Type', 'application/json');
+	    this.http.get('http://107.170.225.6/TikTakPHP/vendor/selectAll.php', {}, {
+	    	'Content-Type':  'application/json'
+	    })
       	.then(data => {
 	        console.log(data.status);
 	        console.log(data.data); // data received by server
