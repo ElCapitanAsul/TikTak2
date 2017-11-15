@@ -17,32 +17,32 @@
 	<ion-list>
 
 	  <ion-item>
-	    <ion-label fixed>Username</ion-label>
-	    <ion-input type="text" value=""></ion-input>
+	  <ion-input type="text" placeholder="E-mail"></ion-input>
 	  </ion-item>
-
+	  <br>
 	  <ion-item>
-	    <ion-label fixed>Password</ion-label>
-	    <ion-input type="password"></ion-input>
+	    <ion-input type="password" placeholder="Password"></ion-input>
 	  </ion-item>
+	  <br>
+	 
 
-	  <ion-item>
+	  <button ion-button color = "secondary" full (click)="openClientsListPage()">Login</button>
 
-	  <button ion-button outline (click)="openClientsListPage()">Login</button>
+	 
+	  <br>
 
-	  <button ion-button outline>Login</button>
-
-	  </ion-item>
-
+	  <div class = "register">
+	  <p style="font; font-size: 12px; color: white; text-align: center">
 	  Don't have account yet? Register as:
-	  <ion-item>
+	  </p>
+	  </div>
 
-	  <button ion-button outline (click)="openCustomerPage()">Client</button>
+	 
 
-	  <button ion-button outline (click)="openCustomerPage()">Customer</button>
+	  <button ion-button color="light" class="client" (click)="openCustomerPage()">Client</button>
 
-	  <button ion-button outline (click)="openVendorPage()">Service Provider</button>
-	  </ion-item>
+	  <button ion-button color="danger" class="service" (click)="openVendorPage()">Service Provider</button>
+	 
 
 	</ion-list>
  
