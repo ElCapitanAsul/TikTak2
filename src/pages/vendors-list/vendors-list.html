@@ -7,13 +7,14 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>vendors-list</ion-title>
+    <ion-title>Choose Vendor</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
 <div padding>
   <ion-segment [(ngModel)]="filter">
     <ion-segment-button value="Online">
@@ -25,39 +26,61 @@
     <ion-segment-button value="Top Rated">
       Top Rated
     </ion-segment-button>
+    <ion-segment-button value="Price">
+      Price
+    </ion-segment-button>
      </ion-segment>
   
 </div>
 
 <div [ngSwitch]="filter">
   <ion-list *ngSwitchCase="'Online'">
-    <ion-item>
-      <ion-thumbnail item-start>
-      <img src="www/img/man.jpg">
+  <h4>{{ loading }}</h4>
+  <button style="background-color: #c0ffee;" ion-item (click)="refresh()">Refresh</button>
+  <ion-item *ngFor="let vendor of vendors">
+    <ion-thumbnail item-start>
+      <img src='{{vendor.image}}'>
     </ion-thumbnail>
-    <h2>Cris John David Manero</h2>
-    <p>Professional Caregiver</p>
+    <h2>{{vendor.fname}}</h2>
+    <p>{{vendor.rating}}</p>
     <button ion-button outline item-end>Send Request</button>
     </ion-item>
   </ion-list>
 
   <ion-list *ngSwitchCase="'Nearby'">
-    <ion-item>
-       <ion-thumbnail item-start>
-      <img src="www/img/man.jpg">
+    <h4>{{ loading }}</h4>
+  <button style="background-color: #c0ffee;" ion-item (click)="refresh()">Refresh</button>
+  <ion-item *ngFor="let vendor of vendors">
+    <ion-thumbnail item-start>
+      <img src='{{vendor.image}}'>
     </ion-thumbnail>
-    <h2>Cris John David Manero</h2>
-    <p>Professional Caregiver</p>
+    <h2>{{vendor.fname}}</h2>
+    <p>{{vendor.rating}}</p>
     <button ion-button outline item-end>Send Request</button>
     </ion-item>
   </ion-list>
 <ion-list *ngSwitchCase="'Top Rated'">
-    <ion-item>
-       <ion-thumbnail item-start>
-      <img src="www/img/man.jpg">
+    <h4>{{ loading }}</h4>
+  <button style="background-color: #c0ffee;" ion-item (click)="refresh()">Refresh</button>
+  <ion-item *ngFor="let vendor of vendors">
+    <ion-thumbnail item-start>
+      <img src='{{vendor.image}}'>
     </ion-thumbnail>
-    <h2>Cris John David Manero</h2>
-    <p>Professional Caregiver</p>
+    <h2>{{vendor.fname}}</h2>
+    <p>{{vendor.rating}}</p>
+    <button ion-button outline item-end>Send Request</button>
+    </ion-item>
+  </ion-list>
+
+<ion-list *ngSwitchCase="'Price'">
+    <h4>{{ loading }}</h4>
+  <button style="background-color: #c0ffee;" ion-item (click)="refresh()">Refresh</button>
+  <ion-item *ngFor="let vendor of vendors">
+    <ion-thumbnail item-start>
+      <img src='{{vendor.image}}'>
+    </ion-thumbnail>
+    <h2>{{vendor.fname}}</h2>
+    <p>{{vendor.rating}}</p>
     <button ion-button outline item-end>Send Request</button>
     </ion-item>
   </ion-list>

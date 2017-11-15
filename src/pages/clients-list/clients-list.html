@@ -31,33 +31,39 @@
 
 <div [ngSwitch]="filter">
   <ion-list *ngSwitchCase="'Online'">
-    <ion-item>
-      <ion-thumbnail item-start>
-      <img src="www/img/man.jpg">
+  <h4>{{ loading }}</h4>
+  <button style="background-color: #c0ffee;" ion-item (click)="refresh()">Refresh</button>
+  <ion-item *ngFor="let client of clients">
+    <ion-thumbnail item-start>
+      <img src='{{client.image}}'>
     </ion-thumbnail>
-    <h2>Cris John David Manero</h2>
-    <p>Professional Caregiver</p>
+    <h2>{{client.fname}}</h2>
+    <p>{{client.rating}}</p>
     <button ion-button outline item-end>Send Request</button>
     </ion-item>
   </ion-list>
 
   <ion-list *ngSwitchCase="'Nearby'">
-    <ion-item>
-       <ion-thumbnail item-start>
-      <img src="www/img/man.jpg">
+    <h4>{{ loading }}</h4>
+  <button style="background-color: #c0ffee;" ion-item (click)="refresh()">Refresh</button>
+  <ion-item *ngFor="let client of clients">
+    <ion-thumbnail item-start>
+      <img src='{{client.image}}'>
     </ion-thumbnail>
-    <h2>Cris John David Manero</h2>
-    <p>Professional Caregiver</p>
+    <h2>{{client.fname}}</h2>
+    <p>{{client.rating}}</p>
     <button ion-button outline item-end>Send Request</button>
     </ion-item>
   </ion-list>
 <ion-list *ngSwitchCase="'Top Rated'">
-    <ion-item>
-       <ion-thumbnail item-start>
-      <img src="www/img/man.jpg">
+    <h4>{{ loading }}</h4>
+  <button style="background-color: #c0ffee;" ion-item (click)="refresh()">Refresh</button>
+  <ion-item *ngFor="let client of clients">
+    <ion-thumbnail item-start>
+      <img src='{{client.image}}'>
     </ion-thumbnail>
-    <h2>Cris John David Manero</h2>
-    <p>Professional Caregiver</p>
+    <h2>{{client.fname}}</h2>
+    <p>{{client.rating}}</p>
     <button ion-button outline item-end>Send Request</button>
     </ion-item>
   </ion-list>

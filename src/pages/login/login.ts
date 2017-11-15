@@ -4,6 +4,7 @@ import { SignupCustomerPage } from '../signup-customer/signup-customer';
 import { SignupVendorPage } from '../signup-vendor/signup-vendor';
 
 import { ClientsListPage } from '../clients-list/clients-list';
+import { VendorsListPage } from '../vendors-list/vendors-list';
 
 
 /**
@@ -44,6 +45,12 @@ export class LoginPage {
     // close the menu when clicking a link from the menu
     // navigate to the new page if it is not the current page
     this.navCtrl.push(ClientsListPage);
+  }
+
+  openVendorsListPage() {
+    // close the menu when clicking a link from the menu
+    // navigate to the new page if it is not the current page
+    this.navCtrl.push(VendorsListPage);
   }
 
 

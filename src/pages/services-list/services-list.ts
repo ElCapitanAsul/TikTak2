@@ -17,11 +17,12 @@ export class ServicesListPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-  	this.services = ['Grooming', 'Caregiving', 'Computer Servicing'];
+  	
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ServicesListPage');
-  }
-
+   }
 }
+
+  
