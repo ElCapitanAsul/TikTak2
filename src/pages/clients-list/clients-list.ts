@@ -44,7 +44,7 @@ export class ClientsListPage {
 
    refresh(){
   		this.message = 'refreshed';
-  		this.getAllCients();	
+  		this.getAllClients();	
   	}
   	
   	getAllClients(){
