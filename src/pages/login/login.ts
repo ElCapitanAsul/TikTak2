@@ -43,7 +43,7 @@ export class LoginPage {
   openClientsListPage() {
     // close the menu when clicking a link from the menu
     // navigate to the new page if it is not the current page
-    this.navCtrl.setRoot(ClientsListPage);
+    this.navCtrl.push(ClientsListPage);
   }
 
 

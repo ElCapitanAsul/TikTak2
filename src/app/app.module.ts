@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -18,7 +19,6 @@ import { TestPage} from '../pages/test/test';
 /* Providers */
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HTTP } from '@ionic-native/http';
 
 
 
@@ -40,6 +40,7 @@ import { HTTP } from '@ionic-native/http';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -61,7 +62,6 @@ import { HTTP } from '@ionic-native/http';
   providers: [
     StatusBar,
     SplashScreen,
-    HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

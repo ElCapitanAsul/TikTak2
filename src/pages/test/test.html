@@ -14,7 +14,9 @@
 
 
 <ion-content padding>
+	<h4>{{ loading }}</h4>
 	<h2>Vendors: </h2>
+	<button style="background-color: #c0ffee;" ion-item (click)="refresh()">Refresh</button>
 	<button ion-item *ngFor="let vendor of vendors">
 	  {{vendor.fname}} <br>
 	  {{vendor.lname}} <br>
