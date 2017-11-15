@@ -87,10 +87,9 @@ export class LoginPage {
       .map(res => res.json())
       .subscribe(
         data => {
-              let status = data.status;
               this.loading = JSON.stringify(data);
               this.result = data.message;
-              if(data.status == 1){
+              if(data.data == 1){
                 this.navCtrl.setRoot(ClientsListPage);
               }else {
                 this.showAuthFailed();
