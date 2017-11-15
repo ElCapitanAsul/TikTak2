@@ -23,6 +23,7 @@ export class TestPage {
 		rating: string,
 		image: string,
 	}>;
+   message: string;
 
   	constructor(public navCtrl: NavController, public navParams: NavParams,private http: HTTP) {
   		        this.vendors = [{
@@ -42,13 +43,15 @@ export class TestPage {
 	        console.log(data.data); // data received by server
 	        console.log(data.headers);
 	    	
-	    	this.vendors = data.data;
+	    	//?  this.vendors = data.data;
+         // this.message = data.data.toString();
       	})
       	.catch(error => {
 
 	        console.log(error.status);
 	        console.log(error.error); // error message as string
 	        console.log(error.headers);
+          this.message = error.status
       	});
   	}
   	
