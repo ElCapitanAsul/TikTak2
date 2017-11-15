@@ -18,8 +18,8 @@
 	<h2>Vendors: </h2>
 	<button style="background-color: #c0ffee;" ion-item (click)="refresh()">Refresh</button>
 	<button ion-item *ngFor="let vendor of vendors">
-	  {{vendor.fname}} <br>
-	  {{vendor.lname}} <br>
+	  First Name: {{vendor.fname}} <br>
+	  Last name: {{vendor.lname}} <br>
 	  {{vendor.email}} <br>
 	  {{vendor.rating}} <br>
 	  {{vendor.image}} <br>
