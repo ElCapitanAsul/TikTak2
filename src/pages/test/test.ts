@@ -37,21 +37,24 @@ export class TestPage {
 
   	ionViewDidLoad() {
 		console.log('ionViewDidLoad TestPage');
-	    this.http.get('http://107.170.225.6/TikTakPHP/vendor/selectAll.php', {}, {})
+		// this.http.setHeader('Content-Type', 'application/json');
+	    this.http.get('http://107.170.225.6/TikTakPHP/vendor/selectAll.php', {}, {
+	    	'Content-Type':  'application/json'
+	    })
       	.then(data => {
 	        console.log(data.status);
 	        console.log(data.data); // data received by server
 	        console.log(data.headers);
 	    	
-	    	//?  this.vendors = data.data;
-         // this.message = data.data.toString();
+	    	this.vendors = data.data;
+         	this.message = 'success: ' + data.data.toString();
       	})
       	.catch(error => {
 
 	        console.log(error.status);
 	        console.log(error.error); // error message as string
 	        console.log(error.headers);
-          this.message = error.status
+          	this.message ='error: ' + error.status + error.status + error.headers;
       	});
   	}
   	
