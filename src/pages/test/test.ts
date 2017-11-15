@@ -46,15 +46,15 @@ export class TestPage {
 	        console.log(data.data); // data received by server
 	        console.log(data.headers);
 	    	
-	    	//?  this.vendors = data.data;
-         // this.message = data.data.toString();
+	    	this.vendors = data.data;
+         	this.message = 'success: ' + data.data.toString();
       	})
       	.catch(error => {
 
 	        console.log(error.status);
 	        console.log(error.error); // error message as string
 	        console.log(error.headers);
-          this.message = error.status
+          	this.message ='error: ' + error.status + error.status + error.headers;
       	});
   	}
   	
