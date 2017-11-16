@@ -50,7 +50,7 @@ this.services = [{
 			.subscribe(
 				data => {
 			        this.services = data;
-			        this.loading = 'Done Loading';
+			        this.loading = JSON.stringify(data);
 	    		},
 	    		// err => {
 	    		// 	this.message = "Error occured";
