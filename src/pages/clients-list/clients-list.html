@@ -37,7 +37,7 @@
     <ion-icon name="contact" item-left></ion-icon>
     <h2>{{client.fname}}</h2>
     <p>{{client.rating}}</p>
-    <button ion-button outline item-end>Send Request</button>
+    <button ion-button outline item-end  (click)="sendRequest(client.id)">Send Request</button>
     </ion-item>
   </ion-list>
 
@@ -48,7 +48,7 @@
    <ion-icon name="contact" item-left></ion-icon>
     <h2>{{client.fname}}</h2>
     <p>{{client.rating}}</p>
-    <button ion-button outline item-end>Send Request</button>
+    <button ion-button outline item-end  (click)="sendRequest(client.id)">Send Request</button>
     </ion-item>
   </ion-list>
 <ion-list *ngSwitchCase="'Top Rated'">
