@@ -31,12 +31,9 @@
 
 <div [ngSwitch]="filter">
   <ion-list *ngSwitchCase="'Online'">
-  <h4>{{ loading }}</h4>
-  <button style="background-color: #c0ffee;" ion-item (click)="refresh()">Refresh</button>
+  <button ion-button icon-only (click)="refresh()"><ion-icon name="refresh"></ion-icon></button>
   <ion-item *ngFor="let client of clients">
-    <ion-thumbnail item-start>
-      <img src='{{client.image}}'>
-    </ion-thumbnail>
+    <ion-icon name="contact" item-left></ion-icon>
     <h2>{{client.fname}}</h2>
     <p>{{client.rating}}</p>
     <button ion-button outline item-end>Send Request</button>
@@ -44,24 +41,18 @@
   </ion-list>
 
   <ion-list *ngSwitchCase="'Nearby'">
-    <h4>{{ loading }}</h4>
-  <button style="background-color: #c0ffee;" ion-item (click)="refresh()">Refresh</button>
+  <button ion-button style="background-color: #c0ffee;" (click)="refresh()">Refresh</button>
   <ion-item *ngFor="let client of clients">
-    <ion-thumbnail item-start>
-      <img src='{{client.image}}'>
-    </ion-thumbnail>
+   <ion-icon name="contact" item-left></ion-icon>
     <h2>{{client.fname}}</h2>
     <p>{{client.rating}}</p>
     <button ion-button outline item-end>Send Request</button>
     </ion-item>
   </ion-list>
 <ion-list *ngSwitchCase="'Top Rated'">
-    <h4>{{ loading }}</h4>
-  <button style="background-color: #c0ffee;" ion-item (click)="refresh()">Refresh</button>
+  <button ion-button style="background-color: #c0ffee;" (click)="refresh()">Refresh</button>
   <ion-item *ngFor="let client of clients">
-    <ion-thumbnail item-start>
-      <img src='{{client.image}}'>
-    </ion-thumbnail>
+    <ion-icon name="contact" item-left></ion-icon>
     <h2>{{client.fname}}</h2>
     <p>{{client.rating}}</p>
     <button ion-button outline item-end>Send Request</button>

@@ -15,9 +15,7 @@
 
 <ion-content padding class="login">
 	
-	  <p style="font-size: 50px; color: white; text-align: center">
-	  TikTak
-	  </p>
+	  <ion-img width="80" height="80" style="align-items: center" src="assets/imgs/tiktak.png"> </ion-img>
 	  
 
 
@@ -45,9 +43,9 @@
 
 	 
 
-	  <button ion-button color="light" class="client" (click)="openCustomerPage()">Client</button>
+	  <button ion-button color="light" class="client" outline (click)="openCustomerPage()">Client</button>
 
-	  <button ion-button color="danger" class="service" (click)="openVendorPage()">Service Provider</button>
+	  <button ion-button color="light" class="service" outline (click)="openVendorPage()">Service Provider</button>
 	 
 
 	</ion-list>
