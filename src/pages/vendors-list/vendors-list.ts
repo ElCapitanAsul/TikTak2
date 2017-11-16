@@ -29,12 +29,12 @@ export class VendorsListPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http) {
   	this.vendors = [{
-  					fname: 'string', 
-  					lname: 'string',
-  					email: 'string',
-  					rating: 'string',
-  					image: 'string',
-  				}];
+		fname: 'string', 
+		lname: 'string',
+		email: 'string',
+		rating: 'string',
+		image: 'string',
+	}];
   }
 
   ionViewDidLoad() {
