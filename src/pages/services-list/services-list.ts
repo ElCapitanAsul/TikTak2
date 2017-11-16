@@ -107,7 +107,7 @@ export class ServicesListPage {
 		    data => {
 		          this.loading = '';
 		          // this.message = data.message;
-		          this.navCtrl.setRoot(ClientsListPage);
+		          this.navCtrl.setRoot(ClientsListPage, {vendor_id : data.vendor_id});
 	      	},(err: HttpErrorResponse) => {
 		            if (err.error instanceof Error) {
 		              	this.loading = 'An error occurred:', err.error.message;

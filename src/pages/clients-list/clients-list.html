@@ -32,6 +32,7 @@
 <div [ngSwitch]="filter">
   <ion-list *ngSwitchCase="'Online'">
   <button ion-button icon-only (click)="refresh()"><ion-icon name="refresh"></ion-icon></button>
+  {{loading}}
   <ion-item *ngFor="let client of clients">
     <ion-icon name="contact" item-left></ion-icon>
     <h2>{{client.fname}}</h2>
@@ -42,6 +43,7 @@
 
   <ion-list *ngSwitchCase="'Nearby'">
   <button ion-button style="background-color: #c0ffee;" (click)="refresh()">Refresh</button>
+  {{loading}}
   <ion-item *ngFor="let client of clients">
    <ion-icon name="contact" item-left></ion-icon>
     <h2>{{client.fname}}</h2>
@@ -51,11 +53,12 @@
   </ion-list>
 <ion-list *ngSwitchCase="'Top Rated'">
   <button ion-button style="background-color: #c0ffee;" (click)="refresh()">Refresh</button>
+  {{loading}}
   <ion-item *ngFor="let client of clients">
     <ion-icon name="contact" item-left></ion-icon>
     <h2>{{client.fname}}</h2>
     <p>{{client.rating}}</p>
-    <button ion-button outline item-end>Send Request</button>
+    <button ion-button outline item-end (click)="sendRequest(client.id)">Send Request</button>
     </ion-item>
   </ion-list>
 

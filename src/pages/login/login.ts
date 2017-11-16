@@ -90,7 +90,7 @@ export class LoginPage {
               this.loading = JSON.stringify(data);
               this.result = data.message;
               if(data.data == 1){
-                this.navCtrl.setRoot(ClientsListPage);
+                this.navCtrl.setRoot(ClientsListPage, { vendor_id:  data.vendor_id});
               }else {
                 this.showAuthFailed();
               }

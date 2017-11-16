@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Http } from '@angular/http';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { Http, Headers, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -17,7 +17,9 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: 'clients-list.html',
 })
 export class ClientsListPage {
+	loading: string;
 	clients: Array<{
+		id: string,
 		fname: string, 
 		lname: string,
 		email: string,
@@ -25,24 +27,26 @@ export class ClientsListPage {
 		image: string,
 	}>;
    message: string;
-   loading: string;
+   vendor_id: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http) {
-  	this.clients = [{
-  					fname: 'string', 
-  					lname: 'string',
-  					email: 'string',
-  					rating: 'string',
-  					image: 'string',
-  				}];
-  }
+  	constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http, public alertCtrl: AlertController) {
+  		this.clients = [{
+				id: '',
+				fname: '', 
+				lname: '',
+				email: '',
+				rating: '',
+				image: '',
+			}];
+		this.vendor_id = navParams.get('vendor_id');
+  	}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ClientsListPage');
-    this.getAllClients();
-  }
+  	ionViewDidLoad() {
+    	console.log('ionViewDidLoad ClientsListPage');
+    	this.getAllClients();
+  	}
 
-   refresh(){
+   	refresh(){
   		this.message = 'refreshed';
   		this.getAllClients();	
   	}
@@ -72,8 +76,42 @@ export class ClientsListPage {
     		      	}
     		    }
 	    	);
+	}	
+	sendRequest(id){
+		this.loading = 'loading...';
+		let value = { "customer_id": id, "vendor_id" : this.vendor_id };
 
-}
+		let headers = new Headers();
+		headers.append('Content-Type', 'application/x-www-form-urlencoded;');
 
-
+		const body = new URLSearchParams();
+		Object.keys(value).forEach(key => {
+		  body.set(key, value[key]);
+		});
+		this.http.post('http://107.170.225.6/TikTakPHP/requests/to_client.php', 
+		  	body.toString(), 
+		  	{headers}
+		)
+	  	.map(res => res.json())
+	  	.subscribe(
+		    data => {
+	          	this.loading = '';
+	          	this.showDialog(data.message);
+	      	},(err: HttpErrorResponse) => {
+            	if (err.error instanceof Error) {
+              		this.loading = 'An error occurred:', err.error.message;
+	            } else {
+	              this.loading = `Backend returned code ${err.status}, body was: ${err.error}`;
+	            }
+	        }
+	    );
+	}	
+	showDialog(message) {
+	  let alert = this.alertCtrl.create({
+	    title: message,
+	    subTitle: '',
+	    buttons: ['OK']
+	  });
+	  alert.present();
+	}
 }

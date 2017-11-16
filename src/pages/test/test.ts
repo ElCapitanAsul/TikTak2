@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { Http, Headers, URLSearchParams } from '@angular/http';
+import { HttpErrorResponse } from '@angular/common/http';
 /**
  * Generated class for the TestPage page.
  *
