@@ -6,7 +6,7 @@ import { SignupVendorPage } from '../signup-vendor/signup-vendor';
 import { ClientsListPage } from '../clients-list/clients-list';
 import { VendorsListPage } from '../vendors-list/vendors-list';
 
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { HttpErrorResponse } from '@angular/common/http';
 

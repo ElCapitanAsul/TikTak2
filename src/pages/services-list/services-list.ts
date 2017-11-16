@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Http } from '@angular/http';
+
+import { Http, Headers, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { HttpErrorResponse } from '@angular/common/http';
-
 /**
  * Generated class for the ServicesListPage page.
  *
@@ -18,25 +18,41 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ServicesListPage {
 	services: Array<{
+		id: 0,
 		name: string, 
-		
+		isChecked: boolean
 	}>;
-   message: string;
-   loading: string;
+	/* request */
+	message: string;
+ 	loading: string;
+ 	/* Vendor Sign up*/
+ 	fname: string;
+ 	lname: string;
+ 	email: string;
+ 	password: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http) {
-this.services = [{
-  					name: 'string', 
-  				}];
-  	
-  }
+ 	host: string;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ServicesListPage');
-    this.getAllServices(); 
-   }
 
-   refresh(){
+  	constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http) {
+		this.services = [{
+			id: 0,
+			name: '', 
+			isChecked: false
+		}];
+		this.fname = navParams.get('fname');
+		this.lname = navParams.get('lname');
+		this.email = navParams.get('email');
+		this.password = navParams.get('password');
+		this.host = '107.170.225.6';
+  	}
+
+  	ionViewDidLoad() {
+	    console.log('ionViewDidLoad ServicesListPage');
+	    this.getAllServices(); 
+   	}
+
+   	refresh(){
   		this.message = 'refreshed';
   		this.getAllServices();	
   	}
@@ -45,16 +61,14 @@ this.services = [{
 		this.loading = 'Loading...';
 		// this.http.setHeader('Content-Type', 'application/json');
 		// this.http.get('https://restcountries.eu/rest/v2/name/eesti')
-		this.http.get('http://107.170.225.6/TikTakPHP/services/selectAll.php')
+		this.http.get('http://' + this.host + '/TikTakPHP/services/selectAll.php')
 			.map(res => res.json())
 			.subscribe(
 				data => {
 			        this.services = data;
 			        this.loading = JSON.stringify(data);
-	    		},
-	    		// err => {
-	    		// 	this.message = "Error occured";
-	    		// }
+			        console.log(this.services);
+	    		},	
 	    		(err: HttpErrorResponse) => {
     		      	if (err.error instanceof Error) {
 	    		        // A client-side or network error occurred. Handle it accordingly.
@@ -66,8 +80,39 @@ this.services = [{
     		      	}
     		    }
 	    	);
+	}
+	checkService(){
+		console.log(this.services);
+	}
+	select(){
+		this.loading = 'loading...';
+		let headers = new Headers();
+		headers.append('Content-Type', 'application/x-www-form-urlencoded;');
 
-}
+		let value = { "fname": this.fname, "lname" : this.lname, "email": this.email, "password": this.password, "services" : JSON.stringify(this.services) };
+
+		const body = new URLSearchParams();
+		Object.keys(value).forEach(key => {
+		  body.set(key, value[key]);
+		});
+		this.http.post('http://' + this.host + '/TikTakPHP/vendor/insert.php', 
+		  body.toString(), 
+		  {headers}
+		)
+		  .map(res => res.json())
+		  .subscribe(
+		    data => {
+		          this.loading = JSON.stringify(data);
+		          this.message = data.message;
+	      	},(err: HttpErrorResponse) => {
+		            if (err.error instanceof Error) {
+		              	this.message = 'An error occurred:', err.error.message;
+		            } else {
+		              this.message = `Backend returned code ${err.status}, body was: ${err.error}`;
+		            }
+		        }
+		    );
+	}
 }
 
   
