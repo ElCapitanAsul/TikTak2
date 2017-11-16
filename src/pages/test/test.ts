@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-import { HttpErrorResponse } from '@angular/common/http';
+
 /**
  * Generated class for the TestPage page.
  *
@@ -28,13 +26,13 @@ export class TestPage {
    loading: string;
 
   	constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http) {
-        this.vendors = [{
-			fname: 'string', 
-			lname: 'string',
-			email: 'string',
-			rating: 'string',
-			image: 'string',
-		}];
+  		        this.vendors = [{
+  					fname: 'string', 
+  					lname: 'string',
+  					email: 'string',
+  					rating: 'string',
+  					image: 'string',
+  				}];
   	}
 
   	ionViewDidLoad() {
@@ -50,7 +48,7 @@ export class TestPage {
 		this.loading = 'Loading...';
 		// this.http.setHeader('Content-Type', 'application/json');
 		// this.http.get('https://restcountries.eu/rest/v2/name/eesti')
-		this.http.get('http://localhost/TikTakPHP/vendor/selectAll.php')
+		this.http.get('http://107.170.225.6/TikTakPHP/vendor/selectAll.php')
 			.map(res => res.json())
 			.subscribe(
 				data => {
