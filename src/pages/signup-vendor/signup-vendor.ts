@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServicesListPage } from '../services-list/services-list';
+import { ClientsListPage } from '../clients-list/clients-list';
 
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -20,6 +21,12 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: 'signup-vendor.html',
 })
 export class SignupVendorPage {
+  loading: string;
+  fname: string;
+  lname: string;
+  email: string;
+  password: string;
+  result: string;
   vendors: Array<{
     fname: string, 
     lname: string,
