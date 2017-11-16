@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http, Headers, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { HttpErrorResponse } from '@angular/common/http';
+
+import { ClientsListPage } from '../clients-list/clients-list';
 /**
  * Generated class for the ServicesListPage page.
  *
@@ -65,18 +67,19 @@ export class ServicesListPage {
 			.map(res => res.json())
 			.subscribe(
 				data => {
+					this.loading = '';
 			        this.services = data;
-			        this.loading = JSON.stringify(data);
+			        // this.loading = JSON.stringify(data);
 			        console.log(this.services);
 	    		},	
 	    		(err: HttpErrorResponse) => {
     		      	if (err.error instanceof Error) {
 	    		        // A client-side or network error occurred. Handle it accordingly.
-	    		        this.message = 'An error occurred:', err.error.message;
+	    		        this.loading = 'An error occurred:', err.error.message;
     		      	} else {
 	    		        // The backend returned an unsuccessful response code.
 	    		        // The response body may contain clues as to what went wrong,
-	    		        this.message = `Backend returned code ${err.status}, body was: ${err.error}`;
+	    		        this.loading = `Backend returned code ${err.status}, body was: ${err.error}`;
     		      	}
     		    }
 	    	);
@@ -102,13 +105,14 @@ export class ServicesListPage {
 		  .map(res => res.json())
 		  .subscribe(
 		    data => {
-		          this.loading = JSON.stringify(data);
-		          this.message = data.message;
+		          this.loading = '';
+		          // this.message = data.message;
+		          this.navCtrl.setRoot(ClientsListPage);
 	      	},(err: HttpErrorResponse) => {
 		            if (err.error instanceof Error) {
-		              	this.message = 'An error occurred:', err.error.message;
+		              	this.loading = 'An error occurred:', err.error.message;
 		            } else {
-		              this.message = `Backend returned code ${err.status}, body was: ${err.error}`;
+		              this.loading = `Backend returned code ${err.status}, body was: ${err.error}`;
 		            }
 		        }
 		    );

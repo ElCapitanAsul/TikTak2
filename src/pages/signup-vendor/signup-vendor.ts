@@ -45,45 +45,6 @@ export class SignupVendorPage {
 
     attemptVendor(){
         this.loading = 'Loading...';
-        // this.http.setHeader('Content-Type', 'application/json');
-        // this.http.get('https://restcountries.eu/rest/v2/name/eesti')
-        // let headers = new Headers();
-        // headers.append('Content-Type', 'application/x-www-form-urlencoded;');
-
-        // let value = { "fname": this.fname, "lname": this.lname, "email": this.email, "password": this.password};
-        // // let body:string = 'email=' + this.email + '&password=' + this.password;
-
-        // const body = new URLSearchParams();
-        //     Object.keys(value).forEach(key => {
-        //     body.set(key, value[key]);
-        // });
-
-        // this.http.post('http://107.170.225.6/TikTakPHP/vendor/insert.php', 
-        //   body.toString(), 
-        //   {headers}
-        // )
-        // .map(res => res.json())
-        // .subscribe(
-        //     data => {
-        //         this.loading = JSON.stringify(data);
-        //         this.result = data.message;
-        //         if(data.data == 1){
-        //             this.navCtrl.setRoot(ClientsListPage);
-        //         }else {
-        //             this.showRegFailed();
-        //         }
-        //     },
-        //     (err: HttpErrorResponse) => {
-        //         if (err.error instanceof Error) {
-        //             // A client-side or network error occurred. Handle it accordingly.
-        //             this.result = 'An error occurred:', err.error.message;
-        //         } else {
-        //             // The backend returned an unsuccessful response code.
-        //             // The response body may contain clues as to what went wrong,
-        //             this.result = `Backend returned code ${err.status}, body was: ${err.error}`;
-        //         }
-        //     }
-        // );
     }
 
 
